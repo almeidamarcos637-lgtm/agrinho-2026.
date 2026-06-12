@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agrinho 2026 - Simulador de Fazenda Sustentável. Descubra o equilíbrio perfeito entre produção agrícola rentável e preservação ambiental.">
+    <meta name="theme-color" content="#003d7a">
+    <meta property="og:title" content="Agrinho 2026 - Agro Forte, Futuro Sustentável">
+    <meta property="og:description" content="Simulador interativo de fazenda sustentável. Tome decisões estratégicas e equilibre lucro com sustentabilidade.">
+    <meta property="og:type" content="website">
+    <title>Agrinho 2026 - Agro Forte, Futuro Sustentável</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-icon">🌱</span>
+                <span class="logo-text">Agrinho 2026</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#simulador" class="nav-link">Simulador</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#ranking" class="nav-link">Ranking</a></li>
+                <li><a href="#creditos" class="nav-link">Créditos</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663723339635/JYgoNf5T3iqkQie8fmtHZo/agrinho-hero-premium-BTdi82x5qj3qFs4zQ94zMx.webp" alt="Fazenda sustentável com painéis solares, tecnologia agrícola e campos verdes" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>Descubra o equilíbrio perfeito entre produção agrícola rentável e preservação ambiental</p>
+            <a href="#simulador" class="cta-button">Começar Simulador</a>
+        </div>
+    </section>
+
+    <!-- Simulator Section -->
+    <section class="simulador" id="simulador">
+        <div class="container">
+            <h2>Simulador de Fazenda Sustentável</h2>
+            <p class="section-subtitle">Tome decisões estratégicas e equilibre lucro com sustentabilidade</p>
+
+            <!-- Mode Selection -->
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="normal" id="normalMode">
+                    <span class="mode-icon">🎮</span>
+                    <span>Modo Normal</span>
+                </button>
+                <button class="mode-btn" data-mode="desafio" id="desafioMode">
+                    <span class="mode-icon">🏆</span>
+                    <span>Modo Desafio</span>
+                </button>
+            </div>
+
+            <!-- Simulator Container -->
+            <div class="simulator-container">
+                <!-- Meters -->
+                <div class="meters-section">
+                    <div class="meter">
+                        <div class="meter-label">
+                            <span>Lucro da Fazenda</span>
+                            <span class="meter-value" id="lucroValue">R$ 0</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill lucro-fill" id="lucroMeter" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="meter">
+                        <div class="meter-label">
+                            <span>Saúde Ambiental</span>
+                            <span class="meter-value" id="ambienteValue">50%</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill ambiente-fill" id="ambienteMeter" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decisions Grid -->
+                <div class="decisions-grid" id="decisionsGrid">
+                    <!-- Decisions will be populated by JavaScript -->
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="calcularBtn">Calcular Resultado</button>
+                    <button class="btn btn-secondary" id="resetBtn">Recomeçar</button>
+                </div>
+
+                <!-- Result Modal -->
+                <div class="modal" id="resultModal">
+                    <div class="modal-content">
+                        <button class="modal-close" id="closeModal">&times;</button>
+                        <h3>Resultado Final</h3>
+                        <div class="result-info">
+                            <div class="result-item">
+                                <span class="result-label">Lucro Total:</span>
+                                <span class="result-value" id="resultLucro">R$ 0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Saúde Ambiental:</span>
+                                <span class="result-value" id="resultAmbiente">0%</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Pontuação Final:</span>
+                                <span class="result-value" id="resultScore">0</span>
+                            </div>
+                        </div>
+                        <div class="achievements" id="achievementsContainer"></div>
+                        <button class="btn btn-primary" id="saveScoreBtn">Salvar Pontuação</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <h2>Impacto Ambiental</h2>
+            <p class="section-subtitle">Veja a diferença entre práticas convencionais e sustentáveis</p>
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663723339635/JYgoNf5T3iqkQie8fmtHZo/agrinho-impact-premium-csvCixyiFvSNVCYhQuq2su.webp" alt="Comparação entre impacto ambiental de agricultura convencional e sustentável" class="about-image">
+            
+            <div class="practices-grid">
+                <h3>Práticas Sustentáveis</h3>
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663723339635/JYgoNf5T3iqkQie8fmtHZo/agrinho-practices-premium-mf2mkNxCsD8EniwZoN82md.webp" alt="Grid de 4 práticas sustentáveis: Energia Solar, Irrigação de Precisão, Cultivos Orgânicos, Restauração Florestal" class="practices-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Ranking Section -->
+    <section class="ranking" id="ranking">
+        <div class="container">
+            <h2>Leaderboard</h2>
+            <p class="section-subtitle">Top 10 Melhores Pontuações</p>
+            <div class="ranking-table" id="rankingTable">
+                <div class="ranking-empty">Nenhuma pontuação salva ainda. Jogue agora!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credits Section -->
+    <section class="creditos" id="creditos">
+        <div class="container">
+            <h2>Créditos e Informações</h2>
+            <div class="credits-content">
+                <div class="credit-item">
+                    <h3>Tecnologias Utilizadas</h3>
+                    <ul>
+                        <li>HTML5 Semântico</li>
+                        <li>CSS3 com Variáveis e Media Queries</li>
+                        <li>JavaScript Vanilla (ES6+)</li>
+                        <li>LocalStorage para Persistência</li>
+                    </ul>
+                </div>
+                <div class="credit-item">
+                    <h3>Imagens (Geradas com IA)</h3>
+                    <ul>
+                        <li><strong>Hero:</strong> Fazenda sustentável moderna com painéis solares, tecnologia agrícola e campos verdes</li>
+                        <li><strong>Impacto:</strong> Comparação antes/depois entre agricultura convencional e sustentável</li>
+                        <li><strong>Práticas:</strong> Grid com 4 práticas sustentáveis (Energia Solar, Irrigação, Orgânicos, Reflorestamento)</li>
+                    </ul>
+                </div>
+                <div class="credit-item">
+                    <h3>Design Philosophy</h3>
+                    <p>Design corporativo profissional com paleta azul-verde, tipografia premium (Lato + Roboto), responsividade perfeita e acessibilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Agrinho - Simulador de Fazenda Sustentável. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/simulator.js"></script>
+</body>
+</html>
