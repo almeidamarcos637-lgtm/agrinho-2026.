@@ -1,0 +1,15 @@
+{
+  "name": "agrinho-2026",
+  "version": "1.0.0",
+  "description": "Agrinho 2026 - Simulador de Fazenda Sustentável",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
